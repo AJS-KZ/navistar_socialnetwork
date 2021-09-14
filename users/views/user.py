@@ -19,7 +19,6 @@ class UserViewSet(mixins.RetrieveModelMixin,
                   mixins.CreateModelMixin,
                   mixins.UpdateModelMixin,
                   viewsets.GenericViewSet):
-
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     permission_classes = [UserPermission, ]
@@ -70,8 +69,6 @@ class UserViewSet(mixins.RetrieveModelMixin,
             # forcibly invalidate the prefetch cache on the instance.
             instance._prefetched_objects_cache = {}
         return Response(data=serializer.data, status=status.HTTP_200_OK)
-
-
 
 
 class UserLastActivityViewSet(views.APIView):
